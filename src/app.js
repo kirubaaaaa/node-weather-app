@@ -15,7 +15,6 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
-
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
@@ -73,8 +72,6 @@ app.get('/products', (req, res) => {
             error: 'You must provide a search term'
         })
     }
-
-    console.log(req.query.search)
     res.send({
         products: []
     })
@@ -97,5 +94,4 @@ app.get('*', (req, res) => {
 })
 
 app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
 })
